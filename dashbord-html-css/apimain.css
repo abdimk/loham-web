@@ -1,0 +1,88 @@
+.hero {
+    max-width: 99%;
+    margin: 10px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 40px;
+}
+
+h2 {
+    border-bottom: 3px solid #4CAF50;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #4CAF50;
+    margin-top: 30px;
+}
+
+.description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.endpoint {
+    margin-bottom: 50px;
+}
+
+.endpoint .url {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.code {
+    background-color: #272822;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 20px;
+}
+pre {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #aaa;
+    font-size: 0.9em;
+}

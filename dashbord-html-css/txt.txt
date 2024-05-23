@@ -1,0 +1,18 @@
+
+// if($_SERVER['REQUEST_METHOD'] ==='POST'){
+_SESSIONstart()
+//     if(!isset($_SESSION['valid'])){
+//         header('Location: ../Login.php');
+//     }
+
+ 
+// }else{
+    
+    
+// }
+
+
+// $name = 'nne';
+// $name = $_SESSION['valid'];
+
+

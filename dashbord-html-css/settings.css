@@ -1,0 +1,90 @@
+.settings-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: relative;
+    top: -50px;
+}
+.settings-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.profile-picture {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5%;
+    border: 2px solid #ccc;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.label_name{
+    text-align: center;
+}
+.form-group input[type="text"], 
+.form-group input[type="email"], 
+.form-group input[type="password"], 
+.form-group input[type="date"] {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-group input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #323031;
+    color: white;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.custom-file-upload:hover {
+    background-color: #524f52;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.file-name {
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+}
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #323031;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-group button:hover {
+    background-color: #524f52;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.email-handler{
+    text-align: center;
+    margin-top: -25px;
+    margin-bottom: 5px;
+    color: #9b9999;
+}

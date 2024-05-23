@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <p>Logo</p>
+        </div>
+
+        <div class="right-links">
+            <a href="#" class="href">Change profile</a>
+            <a href="logout.php"><button class="btn">Logout</button> </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="box form-box">
+            <header>Update Profile</header>
+            <form action="" method="post">
+                <div class="field input">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" autocomplete="off" required>
+                </div>
+
+                <div class="field input">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" autocomplete="off" required>
+                </div>
+
+                <div class="field input">
+                    <label for="date">Birth Date</label>
+                    <input type="date" name="date" id="date" autocomplete="off" required>
+                </div>
+
+                <div class="field input">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" autocomplete="off" required>
+                </div>
+
+                <div class="field">
+                    <input type="submit" class="btn"name="submit" id="submit" value="update" required>
+                </div>
+
+                <div class="links">
+                    Already have account <a href="index.html">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

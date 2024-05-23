@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <nav id="navbar">
+        <img id="logo" src="https://i.ibb.co/hDp4Pqd/image-2023-07-06-171014370.png" alt="Godot Engine Colored for Light Background Logo">
+        <header>GDScript Documentation</header>
+        <ul>
+          <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+          <li><a class="nav-link" href="#Coding">Coding</a></li>
+          <li><a class="nav-link" href="#Hello_World">Hello World</a></li>
+          <li><a class="nav-link" href="#Variables">Variables</a></li>
+          <li><a class="nav-link" href="#Data_Types">Data Types</a></li>
+          <li><a class="nav-link" href="#if...else_Statement">if...else Statement</a></li>
+          <li><a class="nav-link" href="#for_Statement">for Statement</a></li>
+          <li><a class="nav-link" href="#match_Statement">match Statement</a></li>
+        </ul>
+      </nav>
+      <main id="main-doc">
+        <section class="main-section" id="Introduction">
+          <header>Introduction</header>
+          <article>
+            <p>GDScript is a high-level, dynamically typed programming language used to create various contents such as games, applications, animations and many more. Its syntax is somewhat similar to Python in terms of its blocks of code being indent-based, and many keywords are similar.</p>
+            <p>Its goal is to be optimized furthermore and integrated tightly with the Godot Engine. This will allow to expand its application in other fields aside from game development.</p>
+          </article>
+        </section>
+        <br>
+        <section class="main-section" id="Coding">
+          <header>Coding</header>
+          <article>
+            <p>Despite being dynamically typed and being Python-like, its syntax resembles C or C++ more. Additionally, GDScript allows statically typed variables by providing its built-in types.</p>
+            <pre><code class="language-gdscript"># Welcome to GDScript!
+      var GDScript: String = "awesome"
+      func _ready() -> void:
+      &#9;print("GDScript is " + GDScript + "!")</code></pre>
+            <ul>
+              <li>The sharp symbol <code class="inline_code">#</code> means that the whole line after it is a comment.</li>
+              <li>The variable was specified with its built-in type i.e. <code class="inline_code">String</code> class in this case.</li>
+              <li>The <code class="inline_code">_ready()</code> is built-in to the engine. It executes its code after the <i>Node</i> enters the scene.<br>Since GDScript variable is a string, it will be added to the other string and will give this output:</li>
+            </ul>
+            <pre><code class="nohighlight">GDScript is awesome!</code></pre>
+          </article>
+        </section>
+        <br>
+        <section class="main-section" id="Hello_World">
+          <header>Hello World</header>
+          <article>
+            <p>With the example earlier, we can see that writing <i>Hello World!</i> is just a walk at a park.</p>
+            <pre><code class="language-gdscript">func _ready() -> void:
+      &#9;print("Hello World!")</code></pre>
+            <pre><code>Hello World!</code></pre>
+            <ul><li>The <code class="inline_code">void</code> tells the function that there are no values to be returned.</li></ul>
+          </article>
+        </section>
+        <br>
+        <section class="main-section" id="Variables">
+          <header>Variables</header>
+          <article>
+            <p>The variables can be class members (of the Node itself, therefore can be accessed by functions) or local to (inside of) functions. They are created with the <code class="inline_code">var</code> keyword. They may, optionally, be assigned a value upon initialization.</p>
+            <pre><code class="language-gdscript">var a # Default value is 'null'
+      var b = 25
+      var c = 8.9
+      var d = b + c # Variables are always initialized by order</code></pre>
+            <p>Variables can optionally have a type specification. When a type is specified, the variable will be forced to have always that same type, and trying to assign an incompatible value will raise an error.</p>
+            <p>Types are specified in the variable declaration using a colon symbol <code class="inline_code">:</code> after the variable name, followed by the type.</p>
+            <pre><code class="language-gdscript">var map_coordinates: Vector2
+      var avatar_skin: Node = Sprite.new()</code></pre>
+            <p>There is also a shorthand <code class="inline_code">:=</code> for inferring the name type after initializing the variable:</p>
+            <pre><code class="language-gdscript">var map_coordinates := Vector2()
+      var avatar_skin := Sprite.new()</code></pre>
+            <p>Type inference is only possible if the assigned value has a defined type, otherwise it will raise an error.</p>
+            <p>Valid types are:</p>
+            <ul>
+              <li>Built-in types (int, String, Array, Vector2, etc.).</li>
+              <li>Engine classes (Node, Node2D, Control, Spatial, etc.).</li>
+              <li>Constant names if they contain a script resource (<code class="inline_code">ThisScript</code> if you declared <code class="inline_code">const ThisScript = preload("res://this_script.gd")</code>).</li>
+              <li>Other classes in the same script, respecting scope (<code class="inline_code">MainClass.SubClass</code> if you declared <code class="inline_code">class SubClass</code> inside the <code class="inline_code">MainClass</code> in the same scope).</li>
+              <li>Script classes declared with the <code class="inline_code">class_name</code> keyword.</li>
+            </ul>
+          </article>
+        </section>
+        <br>
+        <section class="main-section" id="Data_Types">
+          <header>Data Types</header>
+          <article>
+            <pre><code class="language-gdscript">var number: int = 6
+      var fraction: float = 9.0
+      var text: String = "Nice"
+      var list: Array = ["chocolate", "melon", "strawberry"]
+      var dictionary: Dictionary = {
+      &#9;1: "Access this by 1 int key",
+      &#9;"Two": 200,
+      }
+      var point: Vector2 = Vector2(100.0, 50.0)
+      var size: Vector2 = Vector2(300.0, 150.0)
+      var scale: Rect2 = Rect2(point, size)</code></pre>
+          </article>
+        </section>
+        <br>
+        <section class="main-section" id="if...else_Statement">
+          <header>if...else Statement</header>
+          <article>
+            <pre><code class="language-gdscript">var index := 4
+      if index < 3:
+      &#9;pass
+      elif index > 4:
+      &#9;pass
+      else:
+      &#9;print("The value is " + str(index) + ".")</code></pre>
+          <pre><code class="nohighlight">The value is 4.</code></pre>
+          </article>
+        </section>
+        <br>
+        <section class="main-section" id="for_Statement">
+          <header>for Statement</header>
+          <article>
+            <pre><code class="language-gdscript">var list := ["honey biscuit", "orange juice", "potato chips"]
+      for index in list.size():
+      &#9;print(list[index])</code></pre>
+            <pre><code class="nohighlight">honey biscuit
+      orange juice
+      potato chips</code></pre>
+          </article>
+        </section>
+        <br>
+        <section class="main-section" id="match_Statement">
+          <header>match Statement</header>
+          <article>
+            <pre><code class="language-gdscript">var value := 0.5
+      for i in 5:
+      &#9;value += 0.25
+      
+      match(value):
+      &#9;1.5: 
+      &#9;&#9;print("This is not the value.")
+      &#9;1.75:
+      &#9;&#9;print("This is the right value.")
+      &#9;_:
+      &#9;&#9;print("This gets printed if none of the above were matched.")</code></pre>
+            <pre><code class="nohighlight">"This is the right value."</code></pre>
+          </article>
+        </section>
+      </main>
+
+      <script src="index.js"></script>
+</body>
+</html>
