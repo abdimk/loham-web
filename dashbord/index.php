@@ -96,12 +96,12 @@ $name = "user";
                 </a>
             </li>
 
-            <li class="">
+            <!-- <li class="">
                 <a href="developers.php">
                    <i class='bx bx-user'></i>
                     <span class="link_name">Developers</span>
                 </a>
-            </li>
+            </li> -->
 
             <li class="">
                 <a href="logout.php">

@@ -76,7 +76,7 @@ $image = $user['image'];
                 </a>
             </li>
             <li class="">
-                <a href="#">
+                <a href="api.php">
                     <i class='bx bx-coin-stack'></i>
                     <span class="link_name">Documentaion</span>
                 </a>
@@ -95,12 +95,12 @@ $image = $user['image'];
                 </a>
             </li>
 
-            <li class="">
+            <!-- <li class="">
                 <a href="developers.php">
                     <i class='bx bx-user'></i>
                     <span class="link_name">Developers</span>
                 </a>
-            </li>
+            </li> -->
 
             <li class="">
                 <a href="logout.php">

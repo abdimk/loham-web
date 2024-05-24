@@ -112,12 +112,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 </a>
             </li>
 
-            <li class="">
+            <!-- <li class="">
                 <a href="developers.php">
                     <i class='bx bx-user'></i>
                     <span class="link_name">Developers</span>
                 </a>
-            </li>
+            </li> -->
 
             <li class="">
                 <a href="#">
