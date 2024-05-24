@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li class="">
-                <a href="Category.php">
+                <a href="category.php">
                     <i class='bx bx-list-ul'></i>
                     <span class="link_name">All Catagories</span>
                 </a>

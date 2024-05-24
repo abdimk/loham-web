@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if(isset($_SESSION['valid'])){
           sleep(2);
-          header('Location: dashbord-html-css/index.php');
+          header('Location: dashbord/index.php');
         }
         //header('Location: Login.php');
         exit(); // Exit after successful login to prevent further code execution

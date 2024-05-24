@@ -9,8 +9,16 @@ $statement->execute();
 $companies = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
-
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['category']) && isset($_POST['value'])) {
+        $category = htmlspecialchars($_POST['category']);
+        $value = htmlspecialchars($_POST['value']);
+        echo "Received category: $category and value: $value";
+    } else {
+        echo "Category or value not received";
+    }
+    exit; // Stop further execution to prevent sending HTML content
+}
 
 ?>
 
@@ -23,7 +31,7 @@ $companies = $statement->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loham Main</title>
+    <title>Loham</title>
     <!-- box icons link -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles2.css">
@@ -72,7 +80,7 @@ $companies = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </a>
             </li> -->
             <li class="">
-                <a href="#">
+                <a href="settings.php">
                     <i class='bx bx-cog'></i>
                     <span class="link_name">Settings</span>
                 </a>
@@ -116,10 +124,11 @@ $companies = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         <div id="tab1" class="tab-content active">
             <div class="card-container">
-                <div class="mycard" data-category="Agriculture" onclick="openTab('tab2')">
-                    <img src="https://img.icons8.com/?size=100&id=80392&format=png&color=000000" alt="Agriculture Logo">
-                    <div class="card-title">Agriculture</div>
-                </div>
+                        <!-- <div class="mycard" data-category="Agriculture" onclick="openTab('tab2')"> -->
+                        <div class="mycard" data-category="Agriculture" onclick="handleCardClick('Agriculture', 'cv')">
+                            <img src="https://img.icons8.com/?size=100&id=80392&format=png&color=000000" alt="Agriculture Logo">
+                            <div class="card-title">Agriculture</div>
+                        </div>
                 <div class="mycard" onclick="openTab('tab3')">
                     <img src="https://img.icons8.com/?size=100&id=111278&format=png&color=000000" alt="Ecommerce Logo">
                     <div class="card-title">Automotive</div>
@@ -283,7 +292,8 @@ $companies = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     <div id="tab2" class="tab-content tab2">
     <div class="cards-container">
-    <?php foreach($companies as $company){ ?>    
+        <?php echo $_POST['value']?>
+    <!-- php foreach($companies as $company){ ?>    
                 <div class="company-card">
                 <div class="company-info">
                     <h2 class="company-name"><?php echo $company['company_name']; ?></h2>
@@ -305,7 +315,7 @@ $companies = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             
                 </div>
-        <?php } ?>
+        php } ?> -->
     </div>
 </div>
 
@@ -318,8 +328,26 @@ $companies = $statement->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <script>
-                function openTab(tabName) {
+                function handleCardClick(category, value) {
+                $.ajax({
+                    type: 'POST',
+                    url: '', // Same PHP file
+                    data: {
+                        category: category,
+                        value: value
+                    },
+                    success: function(response) {
+                        console.log('Success:', response);
+                        // Handle the response data here
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', status, error);
+                    }
+                });
+            }
+                 function openTab(tabName) {
                     // Hide all tab contents
+                    // handleCardClick('Agriculture', 'cv');
                     var tabContents = document.getElementsByClassName('tab-content');
                     for (var i = 0; i < tabContents.length; i++) {
                         tabContents[i].classList.remove('active');
@@ -329,7 +357,7 @@ $companies = $statement->fetchAll(PDO::FETCH_ASSOC);
                     document.getElementById(tabName).classList.add('active');
                 }
 
-
+                
 
     </script>
                 
@@ -342,11 +370,6 @@ $companies = $statement->fetchAll(PDO::FETCH_ASSOC);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script src="script.js"></script>
-    <script>
-        function switchToTab(tabId) {
-            document.getElementById(tabId).checked = true;
-        }
-    </script>
 </body>
 
 </html>
