@@ -51,13 +51,24 @@ new Chart(ctx, {
 
 const ctx2 = document.getElementById('myChart2');
 
+
+
+let days = [];
+
+let number_of_requests = [];
+
+for (const searchday of searchDates) {
+  days.push(searchday["search_day"]);
+  number_of_requests.push(searchday["no_of_searches"]);
+}
+
 new Chart(ctx2, {
   type: 'line',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: days,
     datasets: [{
-      label: 'Number of Searchs',
-      data: [12, 19, 3, 5, 2, 3],
+      label: 'Number of Searches',
+      data: number_of_requests,
       borderWidth: 1,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',

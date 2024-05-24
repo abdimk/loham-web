@@ -8,6 +8,25 @@ $stmt3 = $pdo->prepare("SELECT COUNT(DISTINCT primary_category) FROM companies")
 $stmt4 = $pdo->prepare("SELECT categories, COUNT(*) AS record_count FROM companies GROUP BY categories");
 
 
+
+
+$pdo = new PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$number_of_searches = $pdo->prepare("SELECT no_of_searches, search_day, search_date FROM searches WHERE user_id = :id");
+$number_of_searches->bindValue(':id', 23, PDO::PARAM_INT);
+$account_search = $pdo->prepare("SELECT no_of_searches, search_day, search_date FROM searches WHERE user_id = :id");
+$account_search->bindValue(':id', 23, PDO::PARAM_INT);
+
+
+
+
+$account_search->execute();
+$number_of_searches->execute();
+
+$aac = $account_search->fetchAll(PDO::FETCH_ASSOC);
+$searches = $number_of_searches->fetch(PDO::FETCH_ASSOC);
+
+
 $stmt->execute();
 $stmt2->execute();
 $stmt3->execute();
@@ -20,17 +39,8 @@ $total_primary_category = $stmt3->fetchColumn();
 
 
 $categories = $stmt4->fetchAll(PDO::FETCH_ASSOC);
-
-    // // Display the results
-    // foreach ($categories as $cate) {
-    //     // Access category name and record count
-    //     $category_name = $cate["categories"];
-    //     $record_count = $cate["record_count"];
-        
-    //     // Display category name and record count
-    //     #echo "Category: " . $category_name . ", Record Count: " . $record_count . "<br>";
-    // }
 $name = "user";
+
 
 ?>
 
@@ -168,10 +178,10 @@ $name = "user";
                 <div class="box">
                     <div class="left-side">
                         <div class="box_topic">Request Sent</div>
-                        <div class="number">40,696</div>
+                        <div class="number"><?php echo $searches['no_of_searches'];?></div>
                         <div class="indicator">
                             <i class="bx bx-up-arrow-alt"></i>
-                            <span class="text">Last Sent <strong>yesterday</strong></span>
+                            <span class="text">Last Sent <strong><?php echo $searches['search_day'];?></strong></span>
                         </div>
                     </div>
                     <i class="bx bxs-cart-download cart four"></i>
@@ -192,6 +202,9 @@ $name = "user";
                 </div>
                 <div class="box">
                     <canvas id="myChart" width="400" height="180"></canvas>
+                    <script>
+                        const searchDates = <?php echo json_encode($aac); ?>;
+                    </script>
                 </div>
             </div>
         </div>

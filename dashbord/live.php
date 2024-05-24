@@ -2,6 +2,34 @@
 
 
 
+function incrementUserSearches($userId) {
+    // Establish database connection
+    $pdo = new PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Prepare the current date
+    $currentDate = date('Y-m-d');
+
+    // Check if an entry already exists for the current day
+    $statement = $pdo->prepare("SELECT * FROM searches WHERE user_id = :user_id AND search_date = :search_date");
+    $statement->execute(['user_id' => $userId, 'search_date' => $currentDate]);
+    $search = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if ($search) {
+        // Update the existing entry
+        $statement = $pdo->prepare("UPDATE searches SET no_of_searches = no_of_searches + 1 WHERE user_id = :user_id AND search_date = :search_date");
+        $statement->execute(['user_id' => $userId, 'search_date' => $currentDate]);
+    } else {
+        // Insert a new entry with the current date set automatically
+        $statement = $pdo->prepare("INSERT INTO searches (user_id, no_of_searches) VALUES (:user_id, 1)");
+        $statement->execute(['user_id' => $userId]);
+    }
+}
+
+
+
+incrementUserSearches(23);
+
 $pdo = new \PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root','password');
 $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
