@@ -239,6 +239,6 @@ $categories = $stmt4->fetchAll(PDO::FETCH_ASSOC);
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="my_chart.js"></script>
+    <script src="../js/my_chart.js"></script>
 </body>
 </html>
