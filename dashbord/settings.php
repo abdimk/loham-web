@@ -130,10 +130,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loham Main</title>
     <!-- box icons link -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/settings.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="/icon/icons8-l-64.png"type="image/x-icon">
-    <link rel="stylesheet" href="settings.css">
+    
 </head>
 
 <body>

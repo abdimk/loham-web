@@ -84,7 +84,7 @@ $categories = $stmt4->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loham Main</title> 
     <!-- box icons link -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="/icon/icons8-l-64.png"type="image/x-icon">
 </head>
