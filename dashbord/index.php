@@ -12,19 +12,25 @@ $stmt4 = $pdo->prepare("SELECT categories, COUNT(*) AS record_count FROM compani
 
 $pdo = new PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$number_of_searches = $pdo->prepare("SELECT no_of_searches, search_day, search_date FROM searches WHERE user_id = :id");
+$number_of_searches = $pdo->prepare("SELECT no_of_searches, search_day, search_date FROM searches WHERE user_id = :id LIMIT 5");
 $number_of_searches->bindValue(':id', 23, PDO::PARAM_INT);
 $account_search = $pdo->prepare("SELECT no_of_searches, search_day, search_date FROM searches WHERE user_id = :id");
 $account_search->bindValue(':id', 23, PDO::PARAM_INT);
 
 
+$da = $pdo->prepare("SELECT  search_day FROM searches WHERE user_id = :id");
+$da->bindValue(':id', 23, PDO::PARAM_INT);
 
 
 $account_search->execute();
 $number_of_searches->execute();
+$da->execute();
 
 $aac = $account_search->fetchAll(PDO::FETCH_ASSOC);
 $searches = $number_of_searches->fetch(PDO::FETCH_ASSOC);
+
+$days = $da->fetchAll(PDO::FETCH_ASSOC);
+$dd = end($days);
 
 
 $stmt->execute();
@@ -40,6 +46,11 @@ $total_primary_category = $stmt3->fetchColumn();
 
 $categories = $stmt4->fetchAll(PDO::FETCH_ASSOC);
 $name = "user";
+
+
+// user stuff 
+
+
 
 
 ?>
@@ -178,10 +189,10 @@ $name = "user";
                 <div class="box">
                     <div class="left-side">
                         <div class="box_topic">Request Sent</div>
-                        <div class="number"><?php echo $searches['no_of_searches'];?></div>
+                        <div class="number"></div>
                         <div class="indicator">
                             <i class="bx bx-up-arrow-alt"></i>
-                            <span class="text">Last Sent <strong><?php echo $searches['search_day'];?></strong></span>
+                            <span class="text">Last Sent <strong><?php echo $dd['search_day'];?></strong></span>
                         </div>
                     </div>
                     <i class="bx bxs-cart-download cart four"></i>

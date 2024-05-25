@@ -97,51 +97,6 @@ body{
 
 
 /************** HOME Page ************/
-.nav{
-    background: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    line-height: 60px;
-    z-index: 100;
-    margin: 10px 30px;
-    border-radius: 5px;
-}
-
-.logo{
-    font-size: 25px;
-    font-weight: 900;
-}
-
-.right-links a{
-    padding: 0 10px;
-}
-
-main{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
-    
-}
-
-.main-box{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-}
-
-.main-box .top{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.bottom{
-    width: 100%;
-    margin-top: 20px;
-}
-
 @media only screen and (max-width:840px){
     .main-box .top{
         display: flex;

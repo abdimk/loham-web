@@ -1,8 +1,10 @@
 <?php
-include_once("php/config.php");
-
-
-
+try{
+    $pdo = new \PDO('mysql:host=127.0.0.1;port=3306;dbname=loham','root','password');
+    $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+}catch(\PDOException  $e){
+    echo $e->getMessage();
+}
 
 function checkCridential($email){
     $pdo = new \PDO('mysql:host=127.0.0.1;port=3306;dbname=loham','root','password');
@@ -125,11 +127,11 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
                 </div>
 
                 <div class="field">
-                    <input type="submit" class="btn"name="submit" id="submit" value="Sign In" required>
+                    <input type="submit" class="btn"name="submit" id="submit" value="Register" required>
                 </div>
 
                 <div class="links">
-                    Already have account <a href="Login.php">Login</a>
+                    Already have account <a href="login.php">Login</a>
                 </div>
             </form>
         </div>
