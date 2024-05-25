@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
         if ($user['image']) {
             try {
-                unlink($product['image']);
+                //unlink($user['image']);
                 $old_image_dir = dirname($user['image']);
                 
                 // Check if the directory is empty
@@ -97,6 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $query->bindValue(':id', $id);
 
         $query->execute();
+
+
         $_SESSION['user'] = $username;
         $_SESSION['password'] = $password;
         $_SESSION['image'] = $image_path;

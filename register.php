@@ -31,6 +31,7 @@ function checkCredential($pdo, $email) {
 $username = '';
 $email = '';
 $date = '';
+$password = '';
 $errors = [];
 $success = false;
 
@@ -132,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="field input">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" autocomplete="off" value="<?php echo $date?>" required>
+                    <input type="password" name="password" id="password" autocomplete="off" value="<?php echo $password;?>" required>
                 </div>
 
                 <div class="field">
