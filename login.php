@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['valid'] = $dbuser['email'];
         $_SESSION['user'] = $dbuser['username'];
         $_SESSION['password'] = $dbuser['password'];
+        $_SESSION['image'] = $dbuser['image'];
 
         if(isset($_SESSION['valid'])){
           sleep(2);

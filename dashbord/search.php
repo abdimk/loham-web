@@ -1,4 +1,19 @@
 <?php
+
+// user login stuff
+session_start();
+if (!isset($_SESSION['valid'])) {
+    sleep(2);
+    header('Location: ../login.php');
+    exit();
+}
+
+$name = $_SESSION['user'];
+$email = $_SESSION['valid'];
+$image = $_SESSION['image'];
+
+
+
 // Initialize variables with empty strings
 $company_name = $phone_number = $mobile = $fax = $subcity = $business_type = $location = $url = $email = $mobile2 = $primary_category = $category = "";
 
@@ -144,29 +159,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <i class="bx bx-search"></i>
             </div> -->
             <div class="profile-details">
-                <img src="assets/profiles/profile.jpg" alt="">
-                <span class="admin_name">Netkas</span>
+                <img src="<?php echo $image;?>" alt="">
+                <span class="admin_name"><?php echo ucfirst($name);?></span>
                 <i class="bx bx-chevron-down"></i>
             </div>
         </nav>
         <!-- home content -->
         <div class="home-content">
             <div class="containu">
-                <!-- <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Search ..."> -->
-                <!-- <br>
-                <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>City</th>
-                        <th>Salary</th>
-                      </tr>
-                    </thead>
-                    <tbody id="output">
-                      
-                    </tbody>
-                  </table> -->
+               
 
                 <div class="tabs">
 

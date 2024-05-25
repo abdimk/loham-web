@@ -1,5 +1,14 @@
 <?php
+ session_start();
+ if (!isset($_SESSION['valid'])) {
+     sleep(2);
+     header('Location: ../login.php');
+     exit();
+ }
  
+ $name = $_SESSION['user'];
+ $email = $_SESSION['valid'];
+ $image = $_SESSION['image'];
 
 
 ?>
@@ -88,8 +97,8 @@
             </div>
 
             <div class="profile-details">
-                <img src="assets/profiles/profile.jpg" alt="">
-                <span class="admin_name">Netkas</span>
+                <img src="<?php echo $image;?>" alt="">
+                <span class="admin_name"><?php echo ucfirst($name);?></span>
                 <i class="bx bx-chevron-down"></i>
             </div>
         </nav>

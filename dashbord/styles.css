@@ -459,8 +459,9 @@ select{
     height: 50px;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    gap: 5px;
+    justify-content: space-between;
+    
+    /* gap: 5px; */
     min-width: 190px;
     background: #efeef1;
     border: 2px solid #efeef1;

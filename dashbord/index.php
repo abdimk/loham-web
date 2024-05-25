@@ -1,4 +1,20 @@
 <?php
+
+
+// user login stuff
+session_start();
+if (!isset($_SESSION['valid'])) {
+    header('Location: ../login.php');
+    exit();
+}
+
+$name = $_SESSION['user'];
+$email = $_SESSION['valid'];
+$image = $_SESSION['image'];
+
+
+
+
 $pdo = new PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $stmt = $pdo->prepare("SELECT count(*) FROM companies");
@@ -45,7 +61,7 @@ $total_primary_category = $stmt3->fetchColumn();
 
 
 $categories = $stmt4->fetchAll(PDO::FETCH_ASSOC);
-$name = "user";
+
 
 
 // user stuff 
@@ -144,8 +160,7 @@ $name = "user";
                 <i class="bx bx-search"></i>
             </div> -->
             <div class="profile-details">
-                <img src="assets/profiles/profile.jpg" alt="">
-                <span class="admin_name"></span>
+                <img src="<?php echo $image;?>" alt="">
                 <span class="admin_name"><?php echo ucfirst($name);?></span>
                 <i class="bx bx-chevron-down"></i>
             </div>
@@ -189,7 +204,7 @@ $name = "user";
                 <div class="box">
                     <div class="left-side">
                         <div class="box_topic">Request Sent</div>
-                        <div class="number"></div>
+                        <div class="number"><?php echo $searches['no_of_searches']?></div>
                         <div class="indicator">
                             <i class="bx bx-up-arrow-alt"></i>
                             <span class="text">Last Sent <strong><?php echo $dd['search_day'];?></strong></span>
