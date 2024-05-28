@@ -74,6 +74,7 @@ body{
 
 .btn:hover{
     opacity: 0.82;
+    color: #fff;
 }
 
 .submit{
