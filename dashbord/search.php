@@ -339,7 +339,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $("#live_search").keypress(function () {
                 $.ajax({
                     type: 'POST',
-                    url: 'live.php',
+                    url: '../config/live.php',
                     data: {
                         name: $("#live_search").val(),
                     },
