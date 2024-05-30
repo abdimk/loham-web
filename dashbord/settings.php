@@ -1,6 +1,8 @@
 <?php
 
 require_once "../assets/session_start.php";
+require_once "../config/dbconfig.php";
+
 
 function randstring($n) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -12,8 +14,6 @@ function randstring($n) {
     return $str;
 }
 
-$pdo = new PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 $name = $_SESSION['user'];

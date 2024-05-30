@@ -1,12 +1,13 @@
 <?php
 
 require_once "../assets/session_start.php";
+require_once "../config/dbconfig.php";
 
-// Initialize variables with empty strings
+
+
 $company_name = $phone_number = $mobile = $fax = $subcity = $business_type = $location = $url = $email = $mobile2 = $primary_category = $category = "";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    // Assign values from POST data to variables
     $company_name = $_POST['company_name'];
     $phone_number = $_POST['phone_number'];
     $mobile = $_POST['mobile'];
@@ -20,16 +21,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $primary_category = $_POST['primary_category'];
     $category = $_POST['category'];
     
-    // Establish database connection
-    $pdo = new PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
 
-    // Prepare SQL statement
+
     $stmt = $pdo->prepare("INSERT INTO companies(company_name, phone_number, mobile, fax, sub_city, business_type, location, url, primary_category, categories, Mobile2, Email)
             VALUES(:company_name, :phone_number, :mobile, :fax, :subcity, :business_type, :location, :url, :primary_category, :category, :Mobile2, :Email)
     ");
 
-    // Bind values to placeholders
+
     $stmt->bindValue(':company_name', $company_name);
     $stmt->bindValue(':phone_number', $phone_number);
     $stmt->bindValue(':mobile', $mobile);
@@ -43,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $stmt->bindValue(':Mobile2', $mobile2);
     $stmt->bindValue(':Email', $email);
 
-    // Execute the prepared statement
+
     $stmt->execute();
 }
 

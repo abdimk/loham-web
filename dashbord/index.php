@@ -2,19 +2,16 @@
 
 
 require_once "../assets/session_start.php";
+require_once "../config/dbconfig.php";
 
 
-$pdo = new PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $stmt = $pdo->prepare("SELECT count(*) FROM companies");
 $stmt2 = $pdo->prepare("SELECT COUNT(DISTINCT categories) FROM companies");
 $stmt3 = $pdo->prepare("SELECT COUNT(DISTINCT primary_category) FROM companies");
-
 $stmt4 = $pdo->prepare("SELECT categories, COUNT(*) AS record_count FROM companies GROUP BY categories");
 
 
-$pdo = new PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 $number_of_searches = $pdo->prepare("SELECT no_of_searches, search_day, search_date FROM searches WHERE user_id = :id LIMIT 5");
 $number_of_searches->bindValue(':id', 23, PDO::PARAM_INT);
 $account_search = $pdo->prepare("SELECT no_of_searches, search_day, search_date FROM searches WHERE user_id = :id");
@@ -48,12 +45,6 @@ $total_primary_category = $stmt3->fetchColumn();
 
 
 $categories = $stmt4->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-// user stuff 
-
-
 
 
 ?>
