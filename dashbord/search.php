@@ -1,18 +1,6 @@
 <?php
 
-// user login stuff
-session_start();
-if (!isset($_SESSION['valid'])) {
-    sleep(2);
-    header('Location: ../login.php');
-    exit();
-}
-
-$name = $_SESSION['user'];
-$email = $_SESSION['valid'];
-$image = $_SESSION['image'];
-
-
+require_once "../assets/session_start.php";
 
 // Initialize variables with empty strings
 $company_name = $phone_number = $mobile = $fax = $subcity = $business_type = $location = $url = $email = $mobile2 = $primary_category = $category = "";

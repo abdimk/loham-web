@@ -1,11 +1,6 @@
 <?php
-session_start();
-if (!isset($_SESSION['valid'])) {
-    sleep(2);
-    header('Location: ../login.php');
-    exit();
-}
 
+require_once "../assets/session_start.php";
 
 function randstring($n) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

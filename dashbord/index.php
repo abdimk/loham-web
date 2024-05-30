@@ -1,18 +1,7 @@
 <?php
 
 
-// user login stuff
-session_start();
-if (!isset($_SESSION['valid'])) {
-    header('Location: ../login.php');
-    exit();
-}
-
-$name = $_SESSION['user'];
-$email = $_SESSION['valid'];
-$image = $_SESSION['image'];
-
-
+require_once "../assets/session_start.php";
 
 
 $pdo = new PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
@@ -22,8 +11,6 @@ $stmt2 = $pdo->prepare("SELECT COUNT(DISTINCT categories) FROM companies");
 $stmt3 = $pdo->prepare("SELECT COUNT(DISTINCT primary_category) FROM companies");
 
 $stmt4 = $pdo->prepare("SELECT categories, COUNT(*) AS record_count FROM companies GROUP BY categories");
-
-
 
 
 $pdo = new PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
