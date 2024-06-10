@@ -99,8 +99,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['image'] = $image_path;
         
         // Redirect to index.php after successful update
-        header('Location: settings.php');
-        exit;
+        //header('Location: settings.php');
+        
 
     }
 
@@ -129,6 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- box icons link -->
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="../css/myselector.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="/icon/icons8-l-64.png"type="image/x-icon">
     
@@ -165,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="link_name">Documentaion</span>
                 </a>
             </li>
-            <li class="">
+            <li class="my-active">
                 <a href="#">
                     <i class='bx bx-cog'></i>
                     <span class="link_name">Settings</span>

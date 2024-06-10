@@ -63,17 +63,19 @@ $categories = $stmt4->fetchAll(PDO::FETCH_ASSOC);
     <title>Loham Main</title> 
     <!-- box icons link -->
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/myselector.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="/icon/icons8-l-64.png"type="image/x-icon">
 </head>
 <body>
+
     <div class="sidebar">
         <div class="logo-details">
            <span> <i class='bx bxl-java-script'></i></span>
             <span class="logo_name">Loham</span>
         </div>
         <ul class="nav-links">
-            <li class="">
+            <li class="my-active">
                 <a href="#">
                     <i class='bx bx-grid-alt'></i>
                     <span class="link_name">Dashbord</span>
@@ -218,5 +220,7 @@ $categories = $stmt4->fetchAll(PDO::FETCH_ASSOC);
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/my_chart.js"></script>
+
+    
 </body>
 </html>

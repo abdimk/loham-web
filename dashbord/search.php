@@ -70,6 +70,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <title>Loham Main</title>
     <!-- box icons link -->
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/myselector.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -89,7 +90,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     <span class="link_name">Dashbord</span>
                 </a>
             </li>
-            <li class="">
+            <li class="my-active">
                 <a href="#">
                     <i class='bx bx-box'></i>
                     <span class="link_name">Search</span>

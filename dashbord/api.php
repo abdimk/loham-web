@@ -16,6 +16,7 @@ require_once "../assets/session_start.php";
     <!-- box icons link -->
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/apimain.css">
+    <link rel="stylesheet" href="../css/myselector.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="/icon/icons8-l-64.png"type="image/x-icon">
 </head>
@@ -45,7 +46,7 @@ require_once "../assets/session_start.php";
                     <span class="link_name">All Catagories</span>
                 </a>
             </li>
-            <li class="">
+            <li class="my-active">
                 <a href="#">
                     <i class='bx bx-coin-stack'></i>
                     <span class="link_name">Documentaion</span>
