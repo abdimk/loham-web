@@ -12,4 +12,3 @@ $name = $_SESSION['user'];
 $email = $_SESSION['valid'];
 $image = $_SESSION['image'];
 $id = $_SESSION['id'];
-
