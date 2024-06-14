@@ -40,9 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user'] = $dbuser['username'];
         $_SESSION['password'] = $dbuser['password'];
         $_SESSION['image'] = $dbuser['image'];
+        $_SESSION['id'] = $dbuser['id'];
 
         if(isset($_SESSION['valid'])){
-          sleep(2);
+          sleep(1);
           header('Location: dashbord/index.php');
         }
         //header('Location: Login.php');

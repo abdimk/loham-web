@@ -67,15 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Handle file upload
         $image_path = $_POST['image'];
-       // $image_path = '';
-        //$image_path = 'images/' . randstring(8) . '/' .$image['name'];
-        //mkdir(dirname($image_path), 0777, true);
-        // if ($image && $image['name'] && $image['tmp_name']) {
-          
-            // move_uploaded_file($image['tmp_name'], $image_path);
-        // }
-
-        // Insert user into the database
         $query = $pdo->prepare("INSERT INTO users (username, email, birthdate, password, image) VALUES (:username, :email, :birthdate, :password, :image)");
         $query->bindValue(':username', $username);
         $query->bindValue(':email', $email);

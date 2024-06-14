@@ -270,6 +270,66 @@ require_once "../assets/session_start.php";
                     </div>
 
                 </div>
+
+
+
+
+                <div class="endpoint">
+                    <h2>Get Companies with Phone Number</h2>
+                    <p class="description">
+                        You can get companies with their Phone number by starting with +2519
+                    </p>
+
+                    <h3>Endpoint</h3>
+                    <div class="url">POST https://loham.onrender.com/get_with_phone</div>
+
+                    <h3>Response</h3>
+                    <div class="code">
+                        <pre>
+                        {
+                            "companies": [
+                                [
+                                661,
+                                "FEED GREEN ETHIOPIA EXPORTS",
+                                "+25191119333",
+                                "251911193333",
+                                "Bole, Addis Ababa, Ethiopia",
+                                "https://www.2merkato.com/directory/15951-feed-green-ethiopia-exports",
+                                "Agriculture",
+                                "Agriculture",
+                                null,
+                                null
+                                ]
+                        }
+                        </pre>
+                    </div>
+
+                </div>
+
+
+
+
+
+                <div class="endpoint">
+                    <h2>Get Companies with Mobile Number</h2>
+                    <p class="description">
+                        You can get companies with their Mobile number by starting with +2519
+                    </p>
+
+                    <h3>Endpoint</h3>
+                    <div class="url">POST https://loham.onrender.com/get_with_mobile</div>
+
+                    <h3>Request</h3>
+                    <div class="code">
+                        <pre>
+                        {
+                            "mobile": "string",
+                            "limit": 0
+                        }
+                        </pre>
+                    </div>
+
+                </div>
                 <!-- Add more endpoints as needed -->
     
                 <footer>
