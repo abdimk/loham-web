@@ -1,5 +1,5 @@
 <?php
-
+require_once "../assets/session_start.php";
 
 
 function incrementUserSearches($userId) {
@@ -28,7 +28,7 @@ function incrementUserSearches($userId) {
 
 
 
-incrementUserSearches(23);
+incrementUserSearches($id);
 
 $pdo = new \PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root','password');
 $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);

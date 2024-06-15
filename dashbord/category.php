@@ -74,7 +74,7 @@ require_once "../assets/session_start.php";
             </li> -->
 
             <li class="">
-                <a href="#">
+                <a href="logout.php">
                     <i class='bx bx-log-out'></i>
                     <span class="link_name">Log out</span>
                 </a>

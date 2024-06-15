@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 if (isset($_SESSION['valid'])) {
     sleep(1);
@@ -75,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $query->bindValue(':image', $image_path);
         $query->execute();
 
+        
         // Redirect to the login page
         header('Location: login.php');
         exit();

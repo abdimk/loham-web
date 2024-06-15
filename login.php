@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (isset($_SESSION['valid'])) {
@@ -42,11 +41,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['image'] = $dbuser['image'];
         $_SESSION['id'] = $dbuser['id'];
 
+        
         if(isset($_SESSION['valid'])){
+          $pdo = new \PDO('mysql:host=127.0.0.1;port=3306;dbname=loham', 'root', 'password');
+          $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+          $user_id = $_SESSION['id'];
+          $checkStmt = $pdo->prepare("SELECT COUNT(*) FROM searches WHERE user_id = :id");
+          $checkStmt->execute([':id' => $user_id]);
+
+          if ($checkStmt->fetchColumn() == 0) {
+              $insertStmt = $pdo->prepare("INSERT INTO searches(user_id, no_of_searches) VALUES(:id, 0)");
+              $insertStmt->execute([':id' => $user_id]);
+          }
           sleep(1);
           header('Location: dashbord/index.php');
         }
-        //header('Location: Login.php');
         exit(); // Exit after successful login to prevent further code execution
       } else {
         $errors[] = 'Wrong password, please try again';
